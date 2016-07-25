@@ -27,7 +27,8 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
-```php<?=
+```php
+<?=
 \modernkernel\photoswipe\Gallery::widget([
     'items' => [
         [
@@ -46,4 +47,5 @@ Once the extension is installed, simply use it in your code by  :
         ],
     ]
 ])
-?>```
+?>
+```
