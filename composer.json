@@ -1,0 +1,21 @@
+{
+    "name": "modernkernel/yii2-photoswipe",
+    "description": "PhotoSwipe extension for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","photoswipe"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Harry Tang",
+            "email": "harry@modernkernel.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "modernkernel\\photoswipe\\": ""
+        }
+    }
+}
