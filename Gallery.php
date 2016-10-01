@@ -103,12 +103,12 @@ class Gallery extends Widget
 EOD;
             echo $html;
 
-            echo Html::beginTag('div', ['class' => 'my-gallery', 'itemscope', 'itemtype' => 'http://schema.org/ImageGallery']);
+            echo Html::beginTag('div', ['class' => 'my-gallery', 'itemscope'=>true, 'itemtype' => 'http://schema.org/ImageGallery']);
             echo Html::beginTag('div', ['class' => 'row']);
-            foreach ($this->items as $item) {
+            foreach ($this->items as $i=>$item) {
                 echo Html::beginTag('div', ['class' => $this->col]);
-                echo Html::beginTag('figure', ['itemscope', 'itemprop' => 'associatedMedia', 'itemtype' => 'http://schema.org/ImageObject']);
-                echo '<a class="gallery-image" href="' . $item['image'] . '" itemprop="contentUrl" data-size="' . $item['size'] . '">';
+                echo Html::beginTag('figure', ['itemscope'=>true, 'itemprop' => 'associatedMedia', 'itemtype' => 'http://schema.org/ImageObject']);
+                echo '<a data-index="'.$i.'" class="gallery-image" href="' . $item['image'] . '" itemprop="contentUrl" data-size="' . $item['size'] . '">';
                 echo '<img class="' . $this->imgClass . '" src="' . $item['thumb'] . '" itemprop="thumbnail" alt="' . $item['title'] . '" />';
                 echo '</a>';
                 if (!empty($item['caption'])) {
@@ -146,11 +146,17 @@ EOD;
         $items = json_encode($items);
         $clientOptions = json_encode($this->clientOptions);
         $js = <<<EOB
+var pswpElement = document.querySelectorAll('.pswp')[0];        
 $(document).on("click", ".gallery-image", function(e){
-    e.preventDefault();
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, {$clientOptions});
-    gallery.init();
+    e.preventDefault();    
+    var index = $(this).data("index");
+    var options = {
+        index: index,
+        bgOpacity: 0.7,
+        showHideOpacity: true
+    };  
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge(options, {$clientOptions}));
+    gallery.init();    
 });
 EOB;
         $view->registerJs($js);
