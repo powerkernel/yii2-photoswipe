@@ -27,6 +27,7 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+Add Gallery
 ```php
 <?=
 \modernkernel\photoswipe\Gallery::widget([
@@ -47,5 +48,28 @@ Once the extension is installed, simply use it in your code by  :
         ],
     ]
 ])
+?>
+```
+
+Enable lightbox for existing images on your page
+```php
+<?php
+    echo \modernkernel\photoswipe\Modal::widget([
+        'selector'=>'.lightbox',
+        'images' => [
+                [
+                    'src' => 'https://c2.staticflickr.com/2/1518/24267732553_54aed33368_b.jpg',
+                    'width' => 1024,
+                    'height' => 685,
+                    'alt' => 'Title 1',
+                ],
+                [
+                    'src' => 'https://farm6.staticflickr.com/5023/5578283926_822e5e5791_b.jpg',
+                    'width' => 1024,
+                    'height' => 768,
+                    'alt' => 'Title 2',
+                ],
+            ]
+    ]);
 ?>
 ```
