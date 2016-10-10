@@ -155,7 +155,7 @@ $(document).on("click", ".gallery-image", function(e){
         bgOpacity: 0.7,
         showHideOpacity: true
     };  
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge(options, {$clientOptions}));
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge({$clientOptions}, options));
     gallery.init();    
 });
 EOB;

@@ -17,8 +17,8 @@ use yii\base\Widget;
  */
 class Modal extends Widget
 {
-    public $selector='.modal';
-    public $images=[];
+    public $selector = '.modal';
+    public $images = [];
     public $clientOptions = []; // photoswipe options, see http://photoswipe.com/documentation/options.html
 
 
@@ -124,8 +124,9 @@ EOD;
         }
         $items = json_encode($items);
 
+        /* options */
         $clientOptions = json_encode($this->clientOptions);
-        $selector=$this->selector;
+        $selector = $this->selector;
         $js = <<<EOB
 var pswpElement = document.querySelectorAll('.pswp')[0];
 $("{$selector}").css("cursor", "pointer");        
@@ -137,7 +138,7 @@ $(document).on("click", "{$selector}", function(e){
         bgOpacity: 0.7,
         showHideOpacity: true
     };  
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge(options, {$clientOptions}));
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge({$clientOptions}, options));
     gallery.init();    
 });
 EOB;
