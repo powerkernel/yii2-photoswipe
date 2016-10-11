@@ -128,17 +128,18 @@ EOD;
         $clientOptions = json_encode($this->clientOptions);
         $selector = $this->selector;
         $js = <<<EOB
+$("{$selector}").css("cursor", "pointer");
 var pswpElement = document.querySelectorAll('.pswp')[0];
-$("{$selector}").css("cursor", "pointer");        
 $(document).on("click", "{$selector}", function(e){
     e.preventDefault();    
-    var index = $(this).index("{$selector}");
+    var index = $(this).index("{$selector}");    
     var options = {
         index: index,
         bgOpacity: 0.7,
         showHideOpacity: true
     };  
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, $.merge({$clientOptions}, options));
+    $.merge(options, {$clientOptions});
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, {$items}, options);
     gallery.init();    
 });
 EOB;
