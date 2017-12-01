@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2017 Power Kernel
  */
 
-namespace modernkernel\photoswipe;
+namespace powerkernel\photoswipe;
 
 
 use yii\base\Widget;
@@ -13,7 +13,7 @@ use yii\base\Widget;
 
 /**
  * Modal Gallery
- * @package modernkernel\photoswipe
+ * @package powerkernel\photoswipe
  */
 class Modal extends Widget
 {

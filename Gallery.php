@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2017 Power Kernel
  */
 
-namespace modernkernel\photoswipe;
+namespace powerkernel\photoswipe;
 
 
 use yii\base\Widget;
@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
 /**
  * Class Gallery
- * @package modernkernel\photoswipe
+ * @package powerkernel\photoswipe
  */
 class Gallery extends Widget
 {
