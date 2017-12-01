@@ -1,5 +1,5 @@
 {
-    "name": "modernkernel/yii2-photoswipe",
+    "name": "powerkernel/yii2-photoswipe",
     "description": "PhotoSwipe extension for Yii2",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","photoswipe"],
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "modernkernel\\photoswipe\\": ""
+            "powerkernel\\photoswipe\\": ""
         }
     }
 }
