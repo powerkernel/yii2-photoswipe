@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist modernkernel/yii2-photoswipe "*"
+php composer.phar require --prefer-dist powerkernel/yii2-photoswipe "*"
 ```
 
 or add
 
 ```
-"modernkernel/yii2-photoswipe": "*"
+"powerkernel/yii2-photoswipe": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -30,7 +30,7 @@ Once the extension is installed, simply use it in your code by  :
 Add Gallery
 ```php
 <?=
-\modernkernel\photoswipe\Gallery::widget([
+\powerkernel\photoswipe\Gallery::widget([
     'items' => [
         [
             'image' => 'https://c2.staticflickr.com/2/1518/24267732553_54aed33368_b.jpg',
@@ -54,7 +54,7 @@ Add Gallery
 Enable lightbox for existing images on your page
 ```php
 <?php
-    echo \modernkernel\photoswipe\Modal::widget([
+    echo \powerkernel\photoswipe\Modal::widget([
         'selector'=>'.lightbox',
         'images' => [
                 [
